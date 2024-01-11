@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style> 
+        #container {
+          width: 400px;
+          height: 400px;
+          position: relative;
+          background: yellow;
+        }  
+        #container1 {
+          width: 400px;
+          height: 400px;
+          position: relative;
+          background: yellow;
+        } 
+        #square {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: red;
+            }
+        #square1 {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: red;
+            }
+        #square2 {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 350px;
+            top: 350px;
+            background-color: green;
+            }
+
+        .boxClass{        
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            animation-name: animazione;
+            animation-duration: 4s;
+            /*animation-iteration-count: 3;*/
+        }
+        .boxClass1{        
+            animation-iteration-count: 3;
+        }
+        @keyframes animazione{
+            from {left:0px; top:0px;}
+            to {left:350px; top:350px;}
+            /*
+            0%   {background-color:red; left:0px; top:0px;}
+            25%  {background-color:red; left:200px; top:0px;}
+            50%  {background-color:red; left:200px; top:200px;}
+            75%  {background-color:red; left:0px; top:200px;}
+         */
+        }
+        
+        </style>
+</head>
+<body>
+    <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+        <p class="w3-xlarge">The Language for Styling Web Pages</p>
+    </div>
+    <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+  
+        <div class="w3-code cssHigh notranslate">
+
+          <p><button id="btnSquare">square</button></p> 
+
+          <div id ="container">
+            <div id="square"></div>
+            <div id="square1"></div>
+            <div id="square2"></div>
+          </div>
+    
+        </div>
+        <div class="w3-code cssHigh notranslate">
+            <p><button id="btnCircle">circle</button></p>
+
+            <div id ="container1">
+              <!--div id ="circle"></div-->
+            </div>     
+        </div>
+    </div>
+  <script>
+   
+   document.getElementById("btnSquare").addEventListener("click", ()=>{
+        moveSquare();
+   });
+   
+   document.getElementById("btnCircle").addEventListener("click", () => {    
+       // moveCircle(3);
+       moveCircle2();
+   });
+      
+   function moveSquare() {     
+        let id = null;
+        const elem = document.getElementBy
+        Id("square");   
+        let pos = 0;
+        clearInterval(id);
+        id = setInterval(frame, 10);
+        function frame() {            
+            if (pos == 350) {             
+                clearInterval(id);
+            } 
+            else {
+                pos++; 
+                elem.style.top = pos + "px"; 
+                elem.style.left = pos + "px"; 
+            }
+        }            
+   }  
+    
+    function moveCircle(t) {
+      var elem = document.getElementById("circle");
+      elem.setAttribute("class","circle1");
+     // elem.classList.add ('circle1');
+      
+      setTimeout (function() {
+       // var elem = document.getElementById("circle");
+        elem.classList.remove('circle1');
+      }, t*1000);
+      
+   } 
+   function moveCircle2() {
+        const box = document.createElement("div");
+        box.classList.add("boxClass");
+        box.style.animationIterationCount="3";
+        document.getElementById("container1").appendChild(box);
+        /*
+        box.animate(
+        { transform: 'translateY(0)'}, 
+        {
+            duration: 500,
+            fill: 'forwards'
+        });
+        */
+   }   
+     
+    </script>
+    </div>
+    </div>
+    <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+        <p class="w3-xlarge">The Language for Styling Web Pages</p>
+    </div>
+</body>
+</html>
