@@ -1,2 +1,2 @@
-# JS3
-html/css/js
+# JS
+esercizi html/css/js
