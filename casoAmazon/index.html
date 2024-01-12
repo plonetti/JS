@@ -97,7 +97,7 @@
    
    document.getElementById("btnCircle").addEventListener("click", () => {    
        // moveCircle(3);
-       moveCircle2();
+       moveCircle();
    });
       
    function moveSquare() {     
@@ -118,20 +118,10 @@
         }            
    }  
     
-    function moveCircle(t) {
-      var elem = document.getElementById("circle");
-      elem.setAttribute("class","circle1");
-     // elem.classList.add ('circle1');
-      
-      setTimeout (function() {
-       // var elem = document.getElementById("circle");
-        elem.classList.remove('circle1');
-      }, t*1000);
-      
-   } 
-   function moveCircle2() {
+   function moveCircle() {
         const box = document.createElement("div");
         box.classList.add("boxClass");
+        //box.setAttribute("class","boxClass");
         box.style.animationIterationCount="3";
         document.getElementById("container1").appendChild(box);
         
