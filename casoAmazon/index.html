@@ -6,161 +6,122 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style> 
-        #container {
-          width: 100%;
-          height: 400px;
-          position: relative;
-          background: LightGray;
-          margin-top: 20px;
-        }  
         #container1 {
           width: 100%;
           height: 400px;
           position: relative;
           background: LightGray;
         } 
-        #square {
+        #container2 {
+          width: 100%;
+          height: 400px;
+          position: relative;
+          background: LightGray;
+        } 
+        .boxFrom{        
             width: 50px;
             height: 50px;
+            background-color: black;
             position: absolute;
-            background-color: red;
-            }
-        #square1 {
+            z-index: 2;
+        }
+        .boxTo{        
             width: 50px;
             height: 50px;
+            background-color: black;
             position: absolute;
-            background-color: red;
-            }
-        #square2 {
-            width: 50px;
-            height: 50px;
-            position: absolute;
-            left: 350px;
-            top: 350px;
-            background-color: green;
-            }
-
-        .boxClass{        
+            left: 0;
+            bottom:0;
+            z-index: 2;
+        }
+        .boxMove{        
             width: 50px;
             height: 50px;
             background-color: red;
             position: absolute;
             animation-name: animazione;
             animation-duration: 4s;
+            z-index: 1;
             /*animation-iteration-count: 3;*/
-        }
-        .boxClass1{        
-            animation-iteration-count: 3;
         }
         @keyframes animazione{
             from {left:0px; top:0px;}
-            to {left:350px; top:350px;}
-            /*
-            0%   {background-color:red; left:0px; top:0px;}
-            25%  {background-color:red; left:200px; top:0px;}
-            50%  {background-color:red; left:200px; top:200px;}
-            75%  {background-color:red; left:0px; top:200px;}
-         */
+            to {left:0px; top:350px;}
         }
-        .flex-container {
-  display: flex;
-  justify-content: center;
-  background-color: DodgerBlue;
-}
+        
+        p{
+            text-align: center;
+        }
+        .w3-third{
+            margin-top: 20px;
+            margin-bottom:20px;
+        }
 
-.flex-container > div {
-  /*background-color: #f1f1f1;*/
-  width: 100px;
-  margin: 10px;
-  text-align: center;
-  line-height: 75px;
-  font-size: 30px;
-}
-p{
-    text-align: center;
-}
-
-        </style>
+    </style>
 </head>
 <body>
     <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
-        <p class="w3-xlarge">Caso Amazon22222</p>
-    </div>
-    <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
         <p class="w3-xlarge">L.I.F.O. (Last In First Out)</p>
         <div class="w3-code cssHigh notranslate">   
-
-          <div class="w3-row-padding">
-            <div class="w3-third">
-                <input class="w3-input w3-border" type="text" placeholder="PEZZI">  
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <input class="w3-input w3-border" type="text" placeholder="PEZZI">  
+                </div>
+                <div class="w3-third">      
+                    <select class="w3-select" name="option">
+                    <option value="" disabled selected>Choose your color</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                    </select>
+                </div>
+                <div class="w3-third">
+                    <button id="btnSquare1" class="w3-button w3-red">CARICO</button>
+                </div>                  
             </div>
-            <div class="w3-third">
-               
-                <select class="w3-select" name="option">
-                  <option value="" disabled selected>Choose your color</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
-                </select>
-            </div>
-            <div class="w3-third">
-                <button id="btnSquare" class="w3-button w3-red">CARICO</button>
-            </div>
-          
+            <div id ="container1">  
+                <div class="boxFrom"></div>
+                <div class="boxTo"></div>
+            </div>   
         </div>
-
-          <div id ="container">
-            
-              
-            <div id="square"></div>
-            <div id="square1"></div>
-            <div id="square2"></div>
-          </div>   
-        </div>
+        
+        <!--F.I.F.O-->
         <p class="w3-xlarge">F.I.F.O. (First In First Out)</p>
-        <div class="w3-code cssHigh notranslate">
-            <p><button id="btnCircle">circle</button></p>
-
-            <div id ="container1">
-              <!--div id ="circle"></div-->
-            </div>     
+        <div class="w3-code cssHigh notranslate">   
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <input class="w3-input w3-border" type="text" placeholder="PEZZI">  
+                </div>
+                <div class="w3-third">      
+                    <select class="w3-select" name="option">
+                    <option value="" disabled selected>Choose your color</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                    </select>
+                </div>
+                <div class="w3-third">
+                    <button id="btnSquare2" class="w3-button w3-red">CARICO</button>
+                </div>                  
+            </div>
+            <div id ="container2">  
+                <div class="boxFrom"></div>
+            </div>   
         </div>
     </div>
-  <script>
-   
-   document.getElementById("btnSquare").addEventListener("click", ()=>{
-        moveSquare();
-   });
-   
-   document.getElementById("btnCircle").addEventListener("click", () => {    
-       // moveCircle(3);
-       moveCircle();
-   });
-      
-   function moveSquare() {     
-        let id = null;
-        const elem = document.getElementById("square");   
-        let pos = 0;
-        clearInterval(id);
-        id = setInterval(frame, 10);
-        function frame() {            
-            if (pos == 350) {             
-                clearInterval(id);
-            } 
-            else {
-                pos++; 
-                elem.style.top = pos + "px"; 
-                elem.style.left = pos + "px"; 
-            }
-        }            
-   }     
-   function moveCircle() {
+
+   <script>  
+    document.getElementById("btnSquare1").addEventListener("click", ()=>{
+    moveBox();
+    });
+            
+    function moveBox() {
         const box = document.createElement("div");
-        box.classList.add("boxClass");
+        box.classList.add("boxMove");
         //box.setAttribute("class","boxClass");
-        box.style.animationIterationCount="3";
+        box.style.animationIterationCount="2";
         document.getElementById("container1").appendChild(box);       
-   }        
+    }        
     </script>
     </div>
     </div>
