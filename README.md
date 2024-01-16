@@ -1,2 +1,2 @@
-# JS
-esercizi html/css/js
+# Caso Amazon
+Animazioni CSS/JS
