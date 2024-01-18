@@ -1,2 +1,2 @@
 # Caso Amazon
-Animazioni CSS/JS
+L.I.F.O / F.I.F.O 
