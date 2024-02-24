@@ -113,46 +113,30 @@
             var quantita = parseInt(document.getElementById("qta2").value);
 
             //Crea l'elemento pallina a schermo e gli aggiunge la classe.
-            const box = document.createElement("div");
-           
-
-            //Per animazione css: setta l'iteration count alla quantità presa in input.
-             // 3
-        
-            //Posiziona l'elemento box all'interno del div con id "container1".
-           
-
-            for (let i = 0; i < quantita; i++) {
-                //debug
-               
-
-                //togle le classi dei possibili colori precedenti dati all'elemento box.
-               /* 
-                box.classList.remove("giallo");
-                box.classList.remove("verde");
-                box.classList.remove("rosso");
-                box.classList.remove("blu");
-                */
-
+            const box = document.createElement("div");          
+            box.classList.add("boxScarico"); 
+            box.style.animationIterationCount=quantita;
+            
+            for (let i = 0; i < quantita; i++) { // 2
+                console.log("********* scarico ******");
+               console.log(deposito)
                 //Toglie l'ultimo elemento dell'array e inserisce il suo valore (nome del colore) nella variablile colore.
                 let colore = deposito.pop();
-                console.log(colore);
-
                 //Colora gli elementi graficamente in base alla variabile colore.
-                box.style.animationIterationCount=1;
-                box.classList.add("boxScarico"); 
-                document.getElementById("container1").appendChild(box);
                 if(colore=='G'){
-                    //Aggiunge la classe del colore giusto.
-                   
-                    box.classList.add("giallo");
-        
+                    console.log(colore);
+                    //Aggiunge la classe del colore giusto.                  
+                  //  box.classList.add("giallo");
+                    box.style.animationName="animazioneScarico1";      
+                    console.log(box.style.animationName);
                 }
                 else if(colore=='V'){
-                    //Aggiunge la classe del colore giusto.
-                  
-                    box.classList.add("verde");
-
+                    console.log(colore);
+                    //Aggiunge la classe del colore giusto.                 
+                  //  box.classList.add("verde");
+                    box.style.animationName="animazioneScarico2"
+                    box.style.animationIterationCount=1;
+                    console.log(box.style.animationName);
                 }
                 else if(colore=='R'){
                     //Aggiunge la classe del colore giusto.
@@ -162,12 +146,9 @@
                     //Aggiunge la classe del colore giusto.
                     box.classList.add("blu");
                 }
-             
+                document.getElementById("container1").appendChild(box);
             }
-
-            //debug
-            console.log("**************************");
-            console.log (deposito);
+          
         }
 
 //////////////////////////////////////////////   PROVA    /////////////////////////////////////////////////
