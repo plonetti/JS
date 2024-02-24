@@ -1,0 +1,94 @@
+#container1 {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    background: LightGray;
+} 
+#container2 {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    background: LightGray;
+} 
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.388);
+}
+#box1{        
+    position: absolute;
+    left: 5%;
+    bottom: 40%;
+    z-index: 2;
+}
+#box2{
+    position: absolute;
+    left: 40%;
+    bottom: 40%;
+    z-index: 2;
+}
+#box3{
+    position: absolute;
+    left: 80%;
+    bottom: 40%;
+    z-index: 2;
+}
+.boxMove1{        
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: absolute;
+    bottom: 40%;
+    left: 40%;
+    animation-name: animazione1;
+    animation-duration: 2s;
+    z-index: 1;
+    /*animation-iteration-count: 3;*/
+}
+
+.boxMove2{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 40%;
+    left: 40%;
+    animation-name: animazione2;
+    animation-duration: 2s;
+    z-index: 1;
+    /*animation-iteration-count: 3;*/
+}
+
+.giallo{
+    background-color: #fbff00;
+}
+
+.verde{
+    background-color: #3cff00;
+}
+
+.viola{
+    background-color: #9900ff;
+}
+
+.blu{
+    background-color: #003cff;
+}
+
+@keyframes animazione1{
+    from {left: 5%; bottom: 40%;}
+    to {left:40%; bottom: 40%;}
+}
+
+@keyframes animazione2{
+    from {left: 40%; bottom: 40%;}
+    to {left:80%; bottom: 40%;}
+}
+
+p{
+    text-align: center;
+}
+.w3-third{
+    margin-top: 20px;
+    margin-bottom:20px;
+}
