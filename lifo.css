@@ -34,7 +34,7 @@
     bottom: 40%;
     z-index: 2;
 }
-.boxMove1{        
+.boxCarico{        
     width: 100px;
     height: 100px;
     background-color: red;
@@ -47,7 +47,7 @@
     /*animation-iteration-count: 3;*/
 }
 
-.boxMove2{
+.boxScarico{
     width: 100px;
     height: 100px;
     position: absolute;
@@ -67,8 +67,8 @@
     background-color: #3cff00;
 }
 
-.viola{
-    background-color: #9900ff;
+.rosso{
+    background-color: #ff0000;
 }
 
 .blu{
