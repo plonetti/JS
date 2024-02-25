@@ -26,8 +26,7 @@
     position: absolute;
     left: 40%;
     bottom: 40%;
-    z-index: 3;
-    background-color: black;
+    z-index: 2;
 }
 #box3{
     position: absolute;
@@ -41,7 +40,7 @@
     position: absolute;
     bottom: 40%;
     left: 40%;
-    animation-name: animazione1;
+    animation-name: animazioneCarico;
     animation-duration: 1s;
     z-index: 1;
     /*animation-iteration-count: 3;*/
@@ -53,10 +52,19 @@
     position: absolute;
     bottom: 40%;
     left: 40%;
-    animation-name: animazione2;
+    animation-name: animazioneScarico;
     animation-duration: 1s;
     z-index: 1;
-    /*animation-iteration-count: 3;*/
+}
+.boxScarico2{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 40%;
+    left: 40%;
+    animation-name: animazioneScarico;
+    animation-duration: 5s;
+    z-index: 1;
 }
 
 .giallo{
@@ -67,21 +75,30 @@
     background-color: #3cff00;
 }
 
-.viola{
-    background-color: #9900ff;
+.rosso{
+    background-color: #ff0000;
 }
+
 .blu{
     background-color: #003cff;
 }
 
-@keyframes animazione1{
+@keyframes animazioneCarico{
     from {left: 5%; bottom: 40%;}
     to {left:40%; bottom: 40%;}
 }
 
-@keyframes animazione2{
+@keyframes animazioneScarico{
     from {left: 40%; bottom: 40%;}
     to {left:80%; bottom: 40%;}
+}
+@keyframes animazioneScaricoG{
+    from {left: 40%; bottom: 40%;}
+    to {left:80%; bottom: 40%;background-color: #fbff00;}
+}
+@keyframes animazioneScaricoV{
+    from {left: 40%; bottom: 40%;}
+    to {left:80%; bottom: 40%;background-color: #3cff00;}
 }
 
 p{

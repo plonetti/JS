@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +20,10 @@
                 <div class="w3-third">
                     <select id="colore" class="w3-select" name="option">
                         <option value="" disabled selected>Choose your color</option>
-                        <option value='G'>gialle</option>
-                        <option value='V'>verde</option>
-                        <option value='R'>rosso</option>
-                        <option value='B'>blu</option>
+                        <option value="giallo">gialle</option>
+                        <option value="verde">verde</option>
+                        <option value="viola">viola</option>
+                        <option value="blu">blu</option>
                     </select>
                 </div>
                 <div class="w3-third">
@@ -46,103 +47,86 @@
             </div>   
         </div>
 
-   <script>
+<script>
+    // Per ogni posizione dell'array corrisponde una pallina ed il suo colore.
+    var deposito = [];
 
-// Per ogni posizione dell'array corrisponde una pallina ed il suo colore.
-var deposito = [];
-var deposito1 = [];
-//Richiama la funzione carico quando viene cliccato il bottone con id "btnCarico".
-document.getElementById("btnCarico").addEventListener("click", ()=>{
-    carico();
-});
+    //Richiama la funzione carico quando viene cliccato il bottone con id "btnCarico".
+    document.getElementById("btnCarico").addEventListener("click", ()=>{
+        carico();
+    });
 
-//Richiama la funzione scarico quando viene cliccato il bottone con id "btnScarico".
-
-document.getElementById("btnScarico").addEventListener("click", ()=>{
-scarico();
-});
-
-    
-/* document.getElementById("btnScarico").addEventListener("click", ()=>{
-    scarico();
-}); */
-
-function carico() {
-    //Prende rispettivamente colore e quantità in input.
-    var quantita = parseInt(document.getElementById("qta1").value);
-    var colore = document.getElementById("colore").value;
-    
-    const box = document.createElement("div");
-    document.getElementById("container1").appendChild(box);
-    box.classList.add("boxCarico");
-    box.style.animationIterationCount=quantita;     
-    //Colora gli elementi graficamente.
-    for (let i=0;i<quantita;i++) {
-        const box1 = document.createElement("div");
-        box1.classList.add("boxScarico");
-        box1.style.animationIterationCount=1;    
-
-        if(colore=='G'){
-            box.classList.add("giallo");
-            box1.classList.add("giallo");
-            deposito.push(box)
-            deposito1.push(box1)
-        }
-        else if(colore=='V'){
-            box.classList.add("verde");
-            box1.classList.add("verde");
-            deposito.push(box)
-            deposito1.push(box1)
-        }
-        else if(colore=='R'){
-            box.classList.add("rosso");
-        }
-        else if(colore=='B'){
-            box.classList.add("blu");
-        }
-        //debug
-        console.log("**************************");
-        console.log (deposito);
-    }
-}
-    
-function scarico() {
-    //Prende quantità in input.
-    const quantita = parseInt(document.getElementById("qta2").value);
-    console.log("**** sono nello scarico *")
-    console.log(deposito1)
-    for (let i = 0; i < quantita; i++) {
-        var box = document.createElement("div");
-        box = deposito1.shift();
-        console.log(deposito1)
-        box.style.animationIterationCount=quantita;
-        setTimeout(() => {
-            box.remove();
-        }, 2000);
-        document.getElementById("container1").appendChild(box);   
-    }    
+    //Richiama la funzione scarico quando viene cliccato il bottone con id "btnScarico".
+    document.getElementById("btnScarico").addEventListener("click", ()=>{
+        scarico();
+    });
         
-}
-                       
-//////////////////////////////////////////////   PROVA    /////////////////////////////////////////////////
-    
-    function moveSquare() {     
-        let id = null;
-        const elem = document.getElementById("square");   
-        let pos = 0;
-        clearInterval(id);
-        id = setInterval(frame, 10);
-        function frame() {            
-            if (pos == 350) {             
-                clearInterval(id);
-            } 
-            else {
-                pos++; 
-                elem.style.top = pos + "px"; 
-                elem.style.left = pos + "px"; 
+    function carico() {
+        //Prende rispettivamente colore e quantità in input.
+        var quantita = parseInt(document.getElementById("qta1").value);
+        var colore = document.getElementById("colore").value;
+
+        //Crea l'elemento pallina a schermo e gli aggiunge la classe.
+        const box = document.createElement("div");
+        box.classList.add("boxCarico");
+
+        //Per animazione css: setta l'iteration count alla quantità presa in input.
+        box.style.animationIterationCount=quantita;
+        //Posiziona l'elemento box all'interno del div con id "container1".
+        document.getElementById("container1").appendChild(box);
+        for (let i = 0; i < quantita; i++) {
+            //Colora gli elementi graficamente.
+            if(colore=="giallo"){
+                box.classList.add("giallo");
             }
-        }            
-   }  
-    </script>
+            else if(colore=="verde"){
+                box.classList.add("verde");
+            }
+            else if(colore=="viola"){
+                box.classList.add("viola");
+            }
+            else if(colore=="blu"){
+                box.classList.add("blu");
+            }
+            //Aggiunge l'elemento all'array.
+            deposito.push(colore);
+        }
+    }
+
+    function scarico() {
+        //Prende quantità in input.
+    // vedi A) var quantita = parseInt(document.getElementById("qta2").value);
+        var quantita =1;
+        //Crea l'elemento pallina e gli aggiunge la classe.
+        const box = document.createElement("div");
+        box.classList.add("boxScarico");
+
+        /* A) al momento non risolto
+        Per animazione css: setta l'iteration count alla quantità presa in input.
+        box.style.animationIterationCount=quantita; 
+        Per il momento impostiamo la quantità a 1 di default.
+        */
+        box.style.animationIterationCount=1;
+        for (let i = 0; i < quantita; i++) {
+            //Toglie l'ultimo elemento dell'array e inserisce il suo valore (nome del colore) nella variablile colore.
+            let colore = deposito.pop();
+            //Aggiungo il colore.
+            if(colore=="giallo"){
+                box.classList.add("giallo");
+            }
+            else if(colore=="verde"){
+                box.classList.add("verde");
+            }
+            else if(colore=="viola"){
+                box.classList.add("viola");
+            }
+            else if(colore=="blu"){
+                box.classList.add("blu");
+            }
+            //Posiziona l'elemento box all'interno del div con id "container1".
+            document.getElementById("container1").appendChild(box);
+        }
+    }  
+</script>
 </body>
 </html>

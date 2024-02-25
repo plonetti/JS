@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIFO</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="lifoTest.css">
+</head>
+<body>
+    <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+        <p class="w3-xlarge">L.I.F.O. (Last In First Out)</p>
+        <div class="w3-code cssHigh notranslate">   
+            <!-- Carico -->
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <input id="qta1" class="w3-input w3-border" type="text" placeholder="PEZZI">
+                </div>
+                <div class="w3-third">
+                    <select id="colore" class="w3-select" name="option">
+                        <option value="" disabled selected>Choose your color</option>
+                        <option value='G'>gialle</option>
+                        <option value='V'>verde</option>
+                        <option value='R'>rosso</option>
+                        <option value='B'>blu</option>
+                    </select>
+                </div>
+                <div class="w3-third">
+                    <button id="btnCarico" class="w3-button w3-red">CARICO</button>
+                </div>
+            </div>
+            <!-- Scarico -->
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <input id="qta2" class="w3-input w3-border" type="text" placeholder="PEZZI">
+                </div>
+                <div class="w3-third">
+                    <button id="btnScarico" class="w3-button w3-red">SCARICO</button>
+                </div>
+            </div>
+            <!-- Basi -->
+            <div id ="container1">
+                <div id="box1" class="box"></div>
+                <div id="box2" class="box"></div>
+                <div id="box3" class="box"></div>
+            </div>   
+        </div>
+
+   <script>
+
+// Per ogni posizione dell'array corrisponde una pallina ed il suo colore.
+var deposito = [];
+var deposito1 = [];
+//Richiama la funzione carico quando viene cliccato il bottone con id "btnCarico".
+document.getElementById("btnCarico").addEventListener("click", ()=>{
+    carico();
+});
+
+//Richiama la funzione scarico quando viene cliccato il bottone con id "btnScarico".
+
+document.getElementById("btnScarico").addEventListener("click", ()=>{
+scarico();
+});
+
+    
+/* document.getElementById("btnScarico").addEventListener("click", ()=>{
+    scarico();
+}); */
+
+function carico() {
+    //Prende rispettivamente colore e quantità in input.
+    var quantita = parseInt(document.getElementById("qta1").value);
+    var colore = document.getElementById("colore").value;
+    
+    const box = document.createElement("div");
+    document.getElementById("container1").appendChild(box);
+    box.classList.add("boxCarico");
+    box.style.animationIterationCount=quantita;     
+    //Colora gli elementi graficamente.
+    for (let i=0;i<quantita;i++) {
+        const box1 = document.createElement("div");
+        box1.classList.add("boxScarico");
+        box1.style.animationIterationCount=1;    
+
+        if(colore=='G'){
+            box.classList.add("giallo");
+            box1.classList.add("giallo");
+            deposito.push(box)
+            deposito1.push(box1)
+        }
+        else if(colore=='V'){
+            box.classList.add("verde");
+            box1.classList.add("verde");
+            deposito.push(box)
+            deposito1.push(box1)
+        }
+        else if(colore=='R'){
+            box.classList.add("rosso");
+        }
+        else if(colore=='B'){
+            box.classList.add("blu");
+        }
+        //debug
+        console.log("**************************");
+        console.log (deposito);
+    }
+}
+    
+function scarico() {
+    //Prende quantità in input.
+    const quantita = parseInt(document.getElementById("qta2").value);
+    console.log("**** sono nello scarico *")
+    console.log(deposito1)
+    for (let i = 0; i < quantita; i++) {
+        var box = document.createElement("div");
+        box = deposito1.shift();
+        console.log(deposito1)
+        box.style.animationIterationCount=quantita;
+        setTimeout(() => {
+            box.remove();
+        }, 2000);
+        document.getElementById("container1").appendChild(box);   
+    }    
+        
+}
+                       
+//////////////////////////////////////////////   PROVA    /////////////////////////////////////////////////
+    
+    function moveSquare() {     
+        let id = null;
+        const elem = document.getElementById("square");   
+        let pos = 0;
+        clearInterval(id);
+        id = setInterval(frame, 10);
+        function frame() {            
+            if (pos == 350) {             
+                clearInterval(id);
+            } 
+            else {
+                pos++; 
+                elem.style.top = pos + "px"; 
+                elem.style.left = pos + "px"; 
+            }
+        }            
+   }  
+    </script>
+</body>
+</html>
