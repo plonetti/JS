@@ -29,7 +29,7 @@
             width: 50px;
             height: 50px;
             position: absolute;
-            background-color: red;
+            background-color:blue;
             }
         #square2 {
             width: 50px;
@@ -109,9 +109,7 @@ p{
           
         </div>
 
-          <div id ="container">
-            
-              
+          <div id ="container">             
             <div id="square"></div>
             <div id="square1"></div>
             <div id="square2"></div>
@@ -137,23 +135,27 @@ p{
        moveCircle();
    });
       
-   function moveSquare() {     
-        let id = null;
-        const elem = document.getElementById("square");   
-        let pos = 0;
-        clearInterval(id);
-        id = setInterval(frame, 10);
-        function frame() {            
-            if (pos == 350) {             
-                clearInterval(id);
-            } 
-            else {
-                pos++; 
-                elem.style.top = pos + "px"; 
-                elem.style.left = pos + "px"; 
-            }
-        }            
-   }     
+   function moveSquare() {  
+    
+            let id = null;
+            const elem = document.getElementById("square");  
+            let pos = 0;
+            
+            clearInterval(id);
+            id = setInterval(frame, 4);
+     
+            function frame() {            
+                if (pos == 350) {             
+                    clearInterval(id);
+                } 
+                else {                   
+                    pos++; 
+                    elem.style.top = pos + "px"; 
+                    elem.style.left = pos + "px";              
+                }
+            }            
+        }          
+       
    function moveCircle() {
         const box = document.createElement("div");
         box.classList.add("boxClass");
