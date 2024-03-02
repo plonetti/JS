@@ -1,140 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <style> 
-        #container1 {
-          width: 100%;
-          height: 400px;
-          position: relative;
-          background: LightGray;
-        } 
-        #container2 {
-          width: 100%;
-          height: 400px;
-          position: relative;
-          background: LightGray;
-        } 
-        .boxFrom{        
-            width: 50px;
-            height: 50px;
-            background-color: black;
-            position: absolute;
-            z-index: 2;
-        }
-        .boxTo{        
-            width: 50px;
-            height: 50px;
-            background-color: black;
-            position: absolute;
-            left: 0;
-            bottom:0;
-            z-index: 2;
-        }
-        .boxMove{        
-            width: 50px;
-            height: 50px;
-            background-color: red;
-            position: absolute;
-            animation-name: animazione;
-            animation-duration: 2s;
-            z-index: 1;
-            /*animation-iteration-count: 3;*/
-        }
-        @keyframes animazione{
-            from {left:0px; top:0px;}
-            to {left:0px; top:350px;}
-        }
-        
-        p{
-            text-align: center;
-        }
-        .w3-third{
-            margin-top: 20px;
-            margin-bottom:20px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="css/index.css">
+    <!-- Luca Piccinelli, Nicaolas Manetta, Giulia Verderi --> 
 </head>
 <body>
-    <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
-        <p class="w3-xlarge">L.I.F.O. (Last In First Out)</p>
-        <div class="w3-code cssHigh notranslate">   
-            <div class="w3-row-padding">
-                <div class="w3-third">
-                    <input id="qta1" class="w3-input w3-border" type="text" placeholder="PEZZI">  
-                </div>
-                <div class="w3-third">      
-                    <select class="w3-select" name="option">
-                    <option value="" disabled selected>Choose your color</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                    </select>
-                </div>
-                <div class="w3-third">
-                    <button id="btnSquare1" class="w3-button w3-red">CARICO</button>
-                </div>                  
-            </div>
-            <div id ="container1">  
-                <div class="boxFrom"></div>
-                <div class="boxTo"></div>
-            </div>   
-        </div>
-        
-        <!--F.I.F.O-->
-        <p class="w3-xlarge">F.I.F.O. (First In First Out)</p>
-        <div class="w3-code cssHigh notranslate">   
-            <div class="w3-row-padding">
-                <div class="w3-third">
-                    <input class="w3-input w3-border" type="text" placeholder="PEZZI">  
-                </div>
-                <div class="w3-third">      
-                    <select class="w3-select" name="option">
-                    <option value="" disabled selected>Choose your color</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                    </select>
-                </div>
-                <div class="w3-third">
-                    <button id="btnSquare2" class="w3-button w3-red">CARICO</button>
-                </div>                  
-            </div>
-            <div id ="container2">  
-                <div class="boxFrom"></div>
-            </div>   
-        </div>
+    <div class="menu">
+        <h1 class="scritta">caso amazon</h1>
     </div>
-
-   <script>
-
-    var deposito = []; 
-
-    document.getElementById("btnSquare1").addEventListener("click", ()=>{
-      moveBox();
-    });
-            
-    function moveBox() {
-        var quantita = parseInt(document.getElementById("qta1").value);
-        const box = document.createElement("div");
-        box.classList.add("boxMove");
-        //box.setAttribute("class","boxClass");
-        box.style.animationIterationCount=quantita; //3
-        document.getElementById("container1").appendChild(box);
-        for (let i = 0; i < quantita; i++) {
-                deposito.push(colore); 
-               // Da completare     
-        }
-    }        
-    </script>
+    <div class="contiso">
+        <a href="fifo.html" class="iso"><div class="iso"><h1 class="scritta1">F.I.F.O.</h1></div></a>
+        <a href="lifo.html"div class="iso"><div class="iso"><h1 class="scritta1">L.I.F.O.</h1></div></a>
     </div>
-    </div>
-    <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
-        <p class="w3-xlarge">The Language for Styling Web Pages</p>
-    </div>
+    <div class="folder"></div>
 </body>
 </html>

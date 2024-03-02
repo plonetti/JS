@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIFO</title>
+    <title>FIFO</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- Luca Piccinelli, Nicaolas Manetta, Giulia Verderi -->
@@ -13,7 +13,7 @@
         <a href="index.html"><h1 class="scritta">caso amazon</h1></a>
     </div>
     <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
-        <p class="w3-xlarge">L.I.F.O. (Last In First Out)</p>
+        <p class="w3-xlarge">F.I.F.O. (First In First Out)</p>
         <div class="w3-code cssHigh notranslate">
             <!-- Carico -->
             <div class="w3-row-padding">
@@ -22,7 +22,7 @@
                     <option value="" disabled selected>Choose your color</option>
                     <option value="giallo">gialle</option>
                     <option value="verde">verde</option>
-                    <option value="viola">viola</option>                        
+                    <option value="viola">viola</option>
                     <option value="blu">blu</option>
                 </select>
                 <button id="btnCarico" class="w3-button ">CARICO</button>
@@ -103,7 +103,7 @@
         box.style.animationIterationCount=1;
         for (let i = 0; i < quantita; i++) {
             //Toglie l'ultimo elemento dell'array e inserisce il suo valore (nome del colore) nella variablile colore.
-            let colore = deposito.pop();
+            let colore = deposito.shift();
             //Aggiungo il colore.
             if(colore=="giallo"){
                 box.classList.add("giallo");
@@ -122,5 +122,6 @@
         }
     }  
 </script>
+
 </body>
 </html>
