@@ -1,0 +1,174 @@
+.folder{
+  width: 100%;
+  height: 12vh;
+  background-color: #232f32;
+}
+.menu a{
+  text-decoration: none;
+}
+.menu{
+  width: 100%;
+  height: 12vh;
+  background-color: #232f32;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scritta{
+  display: flex;
+  justify-content: center;
+  font-size: 80px;
+  align-items: center;
+  color: #fe9a00;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#container1 {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    background: LightGray;
+  }
+  #container2 {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    background: LightGray;
+  }
+  
+  .w3-row-padding {
+    display: flex;
+    margin: 20px;
+  }
+  
+  .w3-third{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  #btnCarico {
+    width: 250px;
+    margin-left: 20px;
+    background-color: #232f32;
+    color: #fff;
+    transition: 0.3s;
+  }
+  #container1 img{
+    width: 180px;
+    height: 180px;
+  }
+  #btnCarico:hover {
+    background-color: grey;
+    transition: 0.3s;
+  }
+
+  #btnScarico {
+    width: 250px;
+    transition: 0.3s;
+    background-color: #232f32;
+    color: #fff;
+  }
+
+  #btnScarico:hover {
+    background-color: grey;
+    transition: 0.3s;
+  }
+
+  #colore{
+    margin-left: 20px;
+  }
+  
+  .box {
+    width: 100px;
+    height: 100px;
+  }
+  #box1 {
+    position: absolute;
+    left: 5%;
+    bottom: 45%;
+    z-index: 2;
+    align-items: center;
+  }
+  #box2 {
+    position: absolute;
+    left: 47%;
+    bottom: 45%;
+    z-index: 3;
+  }
+  #box3 {
+    position: absolute;
+    left: 87%;
+    bottom: 45%;
+    z-index: 2;
+  }
+  .boxCarico {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    bottom: 40%;
+    left: 49%;
+    animation-name: animazione1;
+    animation-duration: 1s;
+    z-index: 1;
+    /*animation-iteration-count: 3;*/
+    border-radius: 100%;
+  }
+  
+  .boxScarico {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    bottom: 40%;
+    left: 49%;
+    animation-name: animazione2;
+    animation-duration: 1s;
+    z-index: 1;
+    /*animation-iteration-count: 3;*/
+    border-radius: 100%;
+  }
+  
+  .giallo {
+    background-color: #fbff00;
+  }
+  
+  .verde {
+    background-color: #3cff00;
+  }
+  
+  .viola {
+    background-color: #9900ff;
+  }
+  .blu {
+    background-color: #003cff;
+  }
+  
+  @keyframes animazione1 {
+    from {
+      left: 7%;
+      bottom: 30%;
+    }
+    to {
+      left: 49%;
+      bottom: 30%;
+    }
+  }
+  
+  @keyframes animazione2 {
+    from {
+      left: 49%;
+      bottom: 30%;
+    }
+    to {
+      left: 89%;
+      bottom: 30%;
+    }
+  }
+  
+  p {
+    text-align: center;
+  }
+  .w3-third {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
